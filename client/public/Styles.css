@@ -1,0 +1,140 @@
+ 
+*{
+    margin:0;
+    padding:0;
+}
+
+body{
+    overflow-x: hidden;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body::-webkit-scrollbar{
+    width:10px;
+}
+
+body::-webkit-scrollbar-track{
+    background: black;
+}
+
+body::-webkit-scrollbar-thumb{
+    background-color:orange;
+}
+
+@keyframes initialLoad{
+    0%{
+        opacity:0.3;
+    }
+
+    100%{
+        opacity:1;
+    }
+}
+
+.landingContainer{
+    background-image:   linear-gradient(
+        rgba(0, 0, 0, 0.7),
+        rgba(0, 0, 0, 0.7)
+      ),url('./assets/VirusCover.jpg');
+    background-size: cover;
+    background-position: top;
+    font-family: 'Lato', sans-serif;
+    color:white;
+    height:100vh;
+    font-size: 1.5rem;
+    position: relative;
+    animation: initialLoad 2s;
+}
+
+.arrow{
+    position:absolute;
+    top:70%;
+    left:46%;
+    transform: translate(-50%, -50%);
+    animation: bounce 3s infinite;
+    cursor:pointer;
+}
+
+i{
+    color:white;
+}
+
+.Prompts{
+    position: relative;
+    top:35%;
+}
+
+.info, .title{
+    text-align: center;
+}
+
+.info{
+    letter-spacing: 5px;
+}
+
+.title{
+    letter-spacing: 15px;
+    font-size: 5rem;
+}
+
+@keyframes bounce{
+    0%{
+        transform:translateY(0)
+    }
+
+   40%{
+       transform:translateY(-8px)
+   }
+
+   80%{
+       transform: translateY(8px);
+   }
+
+   100%{
+       transform: translateY(0);
+   }
+}
+
+.directiveContainer{
+    height:100vh;
+    width:100vw;
+    background-color: #0984e3;
+    font-family: 'Lato', sans-serif;
+    position:relative;
+}
+ #directives{
+     text-align: center;
+     font-size:5rem;
+     letter-spacing: 10px;
+     margin-bottom:5px;
+ }
+
+ .tips{
+     position:absolute;
+     left:5vw;
+ }
+
+ .tipList{
+     font-size:2rem;
+ }
+
+ .maskImg{
+     max-width: 100%;
+     height:auto;
+     display:block;
+     position:relative;
+     left:73%;
+ }
+
+ .directiveArrow i{
+     color:black;
+ }
+
+ .tip1, .tip2, .tip3, .tip4{
+     margin-bottom:20px;
+ }
+
+
