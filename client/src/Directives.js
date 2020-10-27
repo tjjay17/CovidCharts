@@ -15,7 +15,7 @@ const Directives = () =>{
                 </ul>
             </div>
             <img height = '200' width = '300' className = 'maskImg' src = '/assets/maskImg.png' alt = 'mask' />
-            <Arrow goTo = '#charts' nameOfClass = 'directiveArrow' />
+            <Arrow goTo = '#infoPage' nameOfClass = 'directiveArrow' />
         </div>
     );
 }

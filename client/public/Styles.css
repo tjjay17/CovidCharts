@@ -138,3 +138,81 @@ i{
  }
 
 
+.howContainer{
+    width:100vw;
+    height:100vh;
+}
+
+.sourceLink{
+    color:black;
+}
+
+.howContainer{
+    position:relative;
+    font-family: 'Lato',sans-serif;
+    color:#db6400;
+    background-color: #ccc;
+}
+
+.infoHeader{
+    text-align: center;
+    font-size:4rem;
+    letter-spacing: 10px;
+}
+
+.description{
+    font-size:2rem;
+}
+
+/* .APIlogo{
+    position: relative;
+    left:15%;
+    bottom:5%;
+} */
+
+.toolImages{
+    display: flex;
+    flex-direction: row;
+}
+
+.APIlogo{
+    margin-left:10vw;
+}
+
+.infoArrow i{
+    color:#db6400;
+}
+
+.selectorContainer{
+    width:100vw;
+    height:100vh;
+    position: relative;
+}
+
+.makeChart{
+    width:100%;
+    height:5%;
+    background: transparent;
+    color:#db6400;
+    font-family:'Lato',sans-serif;
+    font-size: 1.5rem;
+    position:relative;
+    left:25%;
+}
+
+.chartForm{
+    position:absolute;
+    left:50%;
+    top:15%;
+    transform: translateX(-50%);
+    display:flex;
+    flex-direction: column;
+}
+
+.country{
+    border:1px solid black;
+}
+
+
+
+
