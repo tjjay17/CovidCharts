@@ -14,7 +14,7 @@ const Prompt = (props) =>{
     }, []);
 
     
-
+//the api doesn't sort countries alphabetically, this function sorts it
     const sortOptions = (toSort) => {
          let sorted = toSort.sort((country1,country2) =>{
             let compare1 = country1.Country.toUpperCase();

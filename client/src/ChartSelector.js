@@ -1,7 +1,7 @@
 import React,{useState} from 'react';
 import Prompt from './Logic/Prompt';
 import axios from 'axios';
-import {Bar} from 'react-chartjs-2';
+import {Bar,defaults} from 'react-chartjs-2';
 
 
 const ChartSelector = () =>{
@@ -98,26 +98,15 @@ const handleClick = () =>{
     })
     
     .catch(error => console.log(error));
-
-    // axios.get('https://api.covid19api.com/country/'+ countries.country2 + '?from=' + yesterday +'Z&to=' + today+'Z')
-    // .then(res => {
-    //     let lastEntryIndex = res.data.length - 1;
-    //     let lastEntry = res.data[lastEntryIndex - 1];
-        
-    //     return updataAPIData(prevValue =>({
-    //         ...prevValue,
-    //         c2Active:lastEntry.Active,
-    //         c2Confirmed:lastEntry.Confirmed,
-    //         c2Deaths:lastEntry.Deaths,
-    //         c2Recovered:lastEntry.Recovered
-    //     }));    
-    // })
-
-    // .catch(err => console.log(err));
-
     console.log(apiData);
 
-    
+     }
+
+     const scaleChange = (event) => {
+      let value = event.target.value;
+      console.log(scale);
+
+      return changeScale(value);
      }
 
 
@@ -128,11 +117,11 @@ const data1 = {
     datasets: [
       {
         label:apiData.c1Country,
-        backgroundColor: ['green','red','blue','yellow'],
+        backgroundColor: ['orange','orange','orange','orange'],
         borderColor: 'rgba(255,99,132,1)',
         borderWidth: 1,
         hoverBackgroundColor: 'black',
-        hoverBorderColor: 'rgba(255,99,132,1)',
+        hoverBorderColor: 'yellow',
         data: [apiData.c1Confirmed, apiData.c1Deaths,apiData.c1Active,apiData.c1Recovered]
       }
     ]
@@ -143,23 +132,24 @@ const data2 = {
   datasets: [
     {
       label:apiData.c2Country,
-      backgroundColor: ['green','red','blue','yellow'],
+      backgroundColor: ['red','red','red','red'],
       borderColor: 'rgba(255,99,132,1)',
       borderWidth: 1,
       hoverBackgroundColor: 'black',
       hoverBorderColor: 'rgba(255,99,132,1)',
-      data: [apiData.c2Confirmed, apiData.c2Deaths,apiData.c2Active,apiData.c2Recovered]
+      data: [apiData.c2Confirmed, apiData.c2Deaths,apiData.c2Active,apiData.c2Recovered],
     }
   ]
 }
 
+defaults.global.defaultFontFamily = "'Lato',sans-serif";
   const options = {
     scales: {
       yAxes: [
         {
           ticks: {
             beginAtZero: true,
-            max:1000000,
+            max:parseInt(scale),
             min:0
           },
         },
@@ -173,7 +163,7 @@ const data2 = {
 // }
 
     return(
-        <div className = 'selectorContainer'>
+        <div id = 'charts' className = 'selectorContainer'>
             <div className = 'chartForm'>
                 <div id = 'country1'>
                     <Prompt change = {handleChange} name = {'country1'}/>
@@ -210,8 +200,12 @@ const data2 = {
                 />
                 </div>
             </div>
+            <div style = {{display:'flex',flexDirection:'row',fontFamily:"'Lato',sans-serif",position:'absolute',left:'50%',top:'2%',transform:'Translate(-50%)',color:'#db6400'}}>
+              <p>Max Scale Value:{'  '}</p>
+              <input type = 'number' onChange = {scaleChange} id = 'scaleMax' />
 
-            <input className = 'scaleInput' />
+            </div>
+          
           
 
             {/* <div className = 'chart2Container'>

@@ -14,8 +14,8 @@ const Directives = () =>{
                     <li className = 'tip5'>Focus on mental health! This is a stressful time.</li>
                 </ul>
             </div>
-            <img height = '200' width = '300' className = 'maskImg' src = '/assets/maskImg.png' alt = 'mask' />
-            <Arrow goTo = '#infoPage' nameOfClass = 'directiveArrow' />
+            {/* <img height = '200' width = '200' className = 'maskImg' src = '/assets/maskImg.png' alt = 'mask' /> */}
+            <Arrow goTo = '#charts' nameOfClass = 'directiveArrow' />
         </div>
     );
 }

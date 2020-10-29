@@ -1,3 +1,9 @@
+/* background-image:   linear-gradient(
+    rgba(0, 0, 0, 0.7),
+    rgba(0, 0, 0, 0.7)
+  ),url('./assets/VirusCover.jpg')
+  */
+ 
  /* #0984e3*/
 *{
     margin:0;
@@ -6,10 +12,12 @@
 
 body{
     overflow-x: hidden;
+    animation: initialLoad 2s;
 }
 
 html{
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 body::-webkit-scrollbar{
@@ -26,7 +34,7 @@ body::-webkit-scrollbar-thumb{
 
 @keyframes initialLoad{
     0%{
-        opacity:0.3;
+        opacity:0;
     }
 
     100%{
@@ -35,36 +43,64 @@ body::-webkit-scrollbar-thumb{
 }
 
 .landingContainer{
-    background-image:   linear-gradient(
-        rgba(0, 0, 0, 0.7),
-        rgba(0, 0, 0, 0.7)
-      ),url('./assets/VirusCover.jpg');
+    background-image: url('./assets/simpleWave.svg');
     background-size: cover;
-    background-position: top;
+    background-position: bottom;
     font-family: 'Lato', sans-serif;
-    color:white;
     height:100vh;
     font-size: 1.5rem;
     position: relative;
-    animation: initialLoad 2s;
+   
 }
 
+#landingWaves{
+    position:absolute;
+    bottom:0;
+}
 .arrow{
     position:absolute;
-    top:70%;
-    left:46%;
+    top:45%;
+    left:48%;
     transform: translate(-50%, -50%);
     animation: bounce 3s infinite;
     cursor:pointer;
 }
 
 i{
-    color:white;
+    color:black;
+}
+
+.skipButton{
+    position:absolute;
+    left:80vw;
+    top:57vh;
+    background:transparent;
+    color:black;
+    text-decoration: none;
+    font-family: 'Lato',sans-serif;
+    font-size:1.5rem;
+    transition:color 1s, font-size 1s;
+    border:2px solid black;
+    border-radius:12px;
+    padding:1vw;
+    cursor:pointer;
+}
+
+
+
+#skip{
+    text-decoration: none;
+   
+}
+#skip:visited, skip:active{
+    color:black;
+   
 }
 
 .Prompts{
     position: relative;
-    top:35%;
+    top:10%;
+    white-space: nowrap;
 }
 
 .info, .title{
@@ -103,8 +139,14 @@ i{
     width:100vw;
     font-family: 'Lato', sans-serif;
     position:relative;
-    background-color: #ccc;
+    background-color:white;
+    background-image: url('./assets/directiveSVG.svg');
+    background-repeat: no-repeat;
+    background-position: bottom;
+
+
 }
+
  #directives{
      text-align: center;
      font-size:5rem;
@@ -119,14 +161,24 @@ i{
 
  .tipList{
      font-size:2rem;
+     z-index:100;
  }
 
  .maskImg{
      max-width: 100%;
      height:auto;
      display:block;
-     position:relative;
-     left:73%;
+     position:absolute;
+     right:0;
+     top:0;
+     z-index: 0;
+ }
+
+ .directiveArrow{
+     position:absolute;
+     bottom:20%;
+     right:11%;
+     
  }
 
  .directiveArrow i{
@@ -136,6 +188,7 @@ i{
  .tip1, .tip2, .tip3, .tip4{
      margin-bottom:20px;
  }
+ 
 
 
 
@@ -170,11 +223,17 @@ i{
 
 .toolImages{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    width:50vw;
 }
 
 .APIlogo{
     margin-left:10vw;
+}
+.infoArrow{
+    position:relative;
+    left:45vw;
+    top:5vh;
 }
 
 .infoArrow i{
@@ -185,6 +244,7 @@ i{
     width:100vw;
     height:100vh;
     position: relative;
+    
 }
 
 .makeChart{
@@ -204,8 +264,7 @@ i{
 .makeChart:hover{
     color:white;
     background: #db6400;
-    box-shadow:2px 7px 7px 1px #000000
-    ;
+    box-shadow:2px 7px 7px 1px #000000;
 }
 
 .chartForm{
@@ -221,8 +280,9 @@ i{
     border:1px solid black;
     font-family:'Lato',sans-serif;
     color:#db6400;
+    font-size:1rem;
+    
 }
-
 
 #country1{
     margin-right:5px;
@@ -234,7 +294,7 @@ i{
     flex-direction: row;
     left:15vw;
     top:30vh;
-
+    cursor:pointer;
 }
 
 .chart1Container{
@@ -248,6 +308,126 @@ i{
     width:35vw;
 }
 
+#scaleMax{
+    font-family: 'Lato',sans-serif;
+}
+svg{
+    height: auto;
+    width:auto;
+}
+
+@media only screen and (max-width:806px){
+    .title{
+        font-size: 3rem;
+    }
+
+    .info{
+        font-size: 1.5rem;
+    }
+
+    #directives{
+        font-size: 4rem;
+    }
+
+    .tipList{
+        font-size: 1.5rem;
+    }
+
+    .directiveArrow{
+        right:18%;
+    }
+
+
+
+}
+
+@media only screen and (max-width:738px){
+    .skipButton{
+        position:absolute;
+        left:10vw;
+    }
+}
+
+@media only screen and (max-width:660px){
+    .directiveArrow{
+        position: absolute;
+        right:14%;
+    }
+}
+
+@media only screen and (max-width:582px){
+    .title{
+        font-size:2rem;
+    }
+
+    .info{
+        font-size: 1rem;
+        margin-top:1vh;
+    }
+
+    .skipButton{
+        font-size:1.2rem;
+    }
+}
+
+@media only screen and (max-width:522px){
+    #directives{
+        font-size:3rem;
+    }
+
+    .tipList{
+        font-size: 1.5rem;
+    }
+
+    .directiveArrow{
+        position: absolute;
+        right:18%;
+    }
+}
+
+@media only screen and (max-width:468px){
+    title{
+        font-size: 1.5rem;
+    }
+
+    .Prompts{
+        white-space: pre-wrap;
+    }
+
+    .skipButton{
+        position: absolute;
+        left:50%;
+        transform: translateX(-50%);
+    }
+
+    .arrow{
+        position:absolute;
+        top:75%;
+        left:37%;
+    }
+
+    #directives{
+        font-size: 2rem;
+    }
+
+    .tipList{
+        font-size: 1rem;
+    }
+}
+
+@media only screen and (max-width:392px){
+    .directiveArrow{
+        right:24%;
+    }
+
+    #directives{
+        font-size: 1.5rem;
+    }
+
+    .tipList{
+        font-size: 0.85rem;
+    }
+}
 
 
 
