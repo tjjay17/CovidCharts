@@ -1,6 +1,5 @@
 import React from 'react';
 import LandingPage from './LandingPage';
-import Directives from './Directives';
 import ChartSelector from './ChartSelector';
 
 function App() {

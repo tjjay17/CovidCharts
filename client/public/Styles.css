@@ -1,10 +1,3 @@
-/* background-image:   linear-gradient(
-    rgba(0, 0, 0, 0.7),
-    rgba(0, 0, 0, 0.7)
-  ),url('./assets/VirusCover.jpg')
-  */
- 
- /* #0984e3*/
 *{
     margin:0;
     padding:0;
@@ -29,7 +22,7 @@ body::-webkit-scrollbar-track{
 }
 
 body::-webkit-scrollbar-thumb{
-    background-color:orange;
+    background-color:pink;
 }
 
 @keyframes initialLoad{
@@ -43,20 +36,14 @@ body::-webkit-scrollbar-thumb{
 }
 
 .landingContainer{
-    background-image: url('./assets/simpleWave.svg');
-    background-size: cover;
-    background-position: bottom;
+    background-color:orange;
+    color:white;
     font-family: 'Lato', sans-serif;
     height:100vh;
     font-size: 1.5rem;
     position: relative;
-   
 }
 
-#landingWaves{
-    position:absolute;
-    bottom:0;
-}
 .arrow{
     position:absolute;
     top:45%;
@@ -64,37 +51,11 @@ body::-webkit-scrollbar-thumb{
     transform: translate(-50%, -50%);
     animation: bounce 3s infinite;
     cursor:pointer;
+    color:white;
 }
 
 i{
     color:black;
-}
-
-.skipButton{
-    position:absolute;
-    left:80vw;
-    top:57vh;
-    background:transparent;
-    color:black;
-    text-decoration: none;
-    font-family: 'Lato',sans-serif;
-    font-size:1.5rem;
-    transition:color 1s, font-size 1s;
-    border:2px solid black;
-    border-radius:12px;
-    padding:1vw;
-    cursor:pointer;
-}
-
-
-
-#skip{
-    text-decoration: none;
-   
-}
-#skip:visited, skip:active{
-    color:black;
-   
 }
 
 .Prompts{
@@ -134,121 +95,18 @@ i{
    }
 }
 
-.directiveContainer{
-    height:100vh;
-    width:100vw;
-    font-family: 'Lato', sans-serif;
-    position:relative;
-    background-color:white;
-    background-image: url('./assets/directiveSVG.svg');
-    background-repeat: no-repeat;
-    background-position: bottom;
-
-
-}
-
- #directives{
-     text-align: center;
-     font-size:5rem;
-     letter-spacing: 10px;
-     margin-bottom:5px;
- }
-
- .tips{
-     position:absolute;
-     left:5vw;
- }
-
- .tipList{
-     font-size:2rem;
-     z-index:100;
- }
-
- .maskImg{
-     max-width: 100%;
-     height:auto;
-     display:block;
-     position:absolute;
-     right:0;
-     top:0;
-     z-index: 0;
- }
-
- .directiveArrow{
-     position:absolute;
-     bottom:20%;
-     right:11%;
-     
- }
-
- .directiveArrow i{
-     color:black;
- }
-
- .tip1, .tip2, .tip3, .tip4{
-     margin-bottom:20px;
- }
- 
-
-
-
-.sourceLink{
-    color:black;
-}
-
-.howContainer{
-    position:relative;
-    font-family: 'Lato',sans-serif;
-    color:#db6400;
-    background-color: #ccc;
-    width:100vw;
-    height:100vh;
-}
-
-.infoHeader{
-    text-align: center;
-    font-size:4rem;
-    letter-spacing: 10px;
-}
-
-.description{
-    font-size:2rem;
-}
-
-/* .APIlogo{
-    position: relative;
-    left:15%;
-    bottom:5%;
-} */
-
-.toolImages{
-    display: flex;
-    flex-direction: column;
-    width:50vw;
-}
-
-.APIlogo{
-    margin-left:10vw;
-}
-.infoArrow{
-    position:relative;
-    left:45vw;
-    top:5vh;
-}
-
-.infoArrow i{
-    color:#db6400;
-}
-
 .selectorContainer{
     width:100vw;
     height:100vh;
     position: relative;
-    
+}
+
+#countrySelectors{
+    display:flex;
+    flex-direction:column;
 }
 
 .makeChart{
-    width:300px;
     height:5%;
     background: transparent;
     color:#db6400;
@@ -259,6 +117,7 @@ i{
     margin-left:15vw;
     cursor:pointer;
     transition:color 1s, background 1s, box-shadow 1s;
+    width:20vw;
 }
 
 .makeChart:hover{
@@ -270,22 +129,21 @@ i{
 .chartForm{
     position:absolute;
     left:50%;
-    top:15%;
+    top:10%;
     transform: translateX(-50%);
     display:flex;
     flex-direction: row;
 }
 
-.country{
+.country,#scaleMax{
     border:1px solid black;
     font-family:'Lato',sans-serif;
     color:#db6400;
     font-size:1rem;
-    
 }
 
-#country1{
-    margin-right:5px;
+#country2{
+    margin-top:2vh;
 }
 
 .chartsContainer{
@@ -310,54 +168,46 @@ i{
 
 #scaleMax{
     font-family: 'Lato',sans-serif;
+    margin-top:2vh;
 }
-svg{
-    height: auto;
-    width:auto;
+
+::placeholder{
+    color:#db6400;
+    font-family: 'Lato',sans-serif;
+
 }
 
 @media only screen and (max-width:806px){
     .title{
-        font-size: 3rem;
+        font-size: 5rem;
     }
 
-    .info{
-        font-size: 1.5rem;
+    .makeChart{
+        width:15vw;
+        font-size:1.5rem;
     }
-
-    #directives{
-        font-size: 4rem;
-    }
-
-    .tipList{
-        font-size: 1.5rem;
-    }
-
-    .directiveArrow{
-        right:18%;
-    }
-
-
-
 }
 
-@media only screen and (max-width:738px){
-    .skipButton{
+@media only screen and (max-width:750px){
+    .info{
+        font-size: 1rem;
+    }
+
+    .arrow{
         position:absolute;
-        left:10vw;
+        left:45%;
     }
 }
 
 @media only screen and (max-width:660px){
-    .directiveArrow{
-        position: absolute;
-        right:14%;
+    .title{
+        font-size:4rem;
     }
 }
 
 @media only screen and (max-width:582px){
     .title{
-        font-size:2rem;
+        font-size:3rem;
     }
 
     .info{
@@ -365,69 +215,80 @@ svg{
         margin-top:1vh;
     }
 
-    .skipButton{
-        font-size:1.2rem;
+    .makeChart{
+        width:20vw;
+    }
+
+    .chartForm{
+        width:10vw;
+        position: absolute;
+        left:10vw;
     }
 }
 
-@media only screen and (max-width:522px){
-    #directives{
-        font-size:3rem;
-    }
-
-    .tipList{
-        font-size: 1.5rem;
-    }
-
-    .directiveArrow{
-        position: absolute;
-        right:18%;
-    }
-}
-
-@media only screen and (max-width:468px){
-    title{
-        font-size: 1.5rem;
-    }
-
-    .Prompts{
-        white-space: pre-wrap;
-    }
-
-    .skipButton{
-        position: absolute;
-        left:50%;
-        transform: translateX(-50%);
-    }
-
+@media only screen and (max-width:512px){
     .arrow{
-        position:absolute;
-        top:75%;
-        left:37%;
-    }
+        left:45%;
+        font-size:1rem;
+    }   
+}
 
-    #directives{
+@media only screen and (max-width:474px){
+    .title{
         font-size: 2rem;
     }
 
-    .tipList{
+    .info{
         font-size: 1rem;
     }
+
+    .landingContainer{
+        position: relative;
+    }
+
+    .Prompts{
+        position:absolute;
+        top:30vh;
+        left:5vw;
+    }
+
+    .arrow{
+        font-size:1rem;
+        position:absolute;
+        top:30vh;
+    }
+
+    .chartForm{
+        position: relative;
+    }
+
+    #countrySelectors{
+        position: relative;
+        right:2vw;
+    }
+
+    .makeChart{
+        width:50vw;
+        position:absolute;
+        left:0;
+        top:20vh;
+        height:8vh;
+    }
 }
 
-@media only screen and (max-width:392px){
-    .directiveArrow{
-        right:24%;
+@media only screen and (max-width:366px){
+    .country{
+        width:60vw;
     }
 
-    #directives{
-        font-size: 1.5rem;
-    }
-
-    .tipList{
-        font-size: 0.85rem;
+    #countrySelectors{
+        position: relative;
+        left:10vw;
     }
 }
+
+
+
 
 
 

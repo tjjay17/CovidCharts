@@ -26,28 +26,7 @@ let [apiData,updataAPIData] = useState({
     c2Recovered:null
 });
 
-// const formatDate = () =>{
-//     let today = new Date();
-//     let todayString = new Date(today.getTime() - (today.getTimezoneOffset() * 60000 ))
-//                     .toISOString()
-//                     .split(".")[0];
 
-    
-//     //prev_date.getTime(0)
-//     today.setDate(today.getDate() - 1);
-
-//     today.setHours(0);
-//     today.setMinutes(0);
-//     today.setSeconds(0);
-
-//     let yesterdayString = new Date(today.getTime() - (today.getTimezoneOffset() * 60000 ))
-//                     .toISOString()
-//                     .split(".")[0]
-//     return {
-//         today:todayString,
-//         yesterday:yesterdayString
-//     };
-// }
     
 const handleChange = (event) =>{
     let name = event.target.name;
@@ -62,9 +41,6 @@ const handleChange = (event) =>{
 }
 
 const handleClick = () =>{
-    console.log(countries);
-
-
     axios.get('https://api.covid19api.com/total/country/' + countries.country1)
     .then(res => {
         let lastEntryIndex = res.data.length - 1;
@@ -84,9 +60,11 @@ const handleClick = () =>{
 
     axios.get('https://api.covid19api.com/total/country/' + countries.country2)
     .then(res => {
-        let lastEntryIndex = (res.data.length - 1);
+        //obtain latest piece of data there
+        let lastEntryIndex = res.data.length - 1;
         let lastEntry = res.data[lastEntryIndex];
-       console.log(lastEntry.Active)
+
+        //update the data received from the API
          updataAPIData(prevValue =>({
             ...prevValue,
             c2Country:lastEntry.Country,
@@ -96,18 +74,15 @@ const handleClick = () =>{
             c2Recovered:lastEntry.Recovered
         }));
     })
-    
     .catch(error => console.log(error));
-    console.log(apiData);
+}
 
-     }
+const scaleChange = (event) => {
+    let value = event.target.value;
+    return changeScale(value);
+ }
 
-     const scaleChange = (event) => {
-      let value = event.target.value;
-      console.log(scale);
-
-      return changeScale(value);
-     }
+    
 
 
 //this bit is for the charts
@@ -157,14 +132,10 @@ defaults.global.defaultFontFamily = "'Lato',sans-serif";
     },
   }
 
-
-// const handleClick = () =>{
-//     axios.get()
-// }
-
     return(
         <div id = 'charts' className = 'selectorContainer'>
             <div className = 'chartForm'>
+              <div id = 'countrySelectors'>
                 <div id = 'country1'>
                     <Prompt change = {handleChange} name = {'country1'}/>
                 </div>
@@ -172,7 +143,11 @@ defaults.global.defaultFontFamily = "'Lato',sans-serif";
                 <div id = 'country2'>
                     <Prompt change = {handleChange} name = {'country2'}/>
                 </div>
-                <button name = {'submitCountry'} onClick = {handleClick} className = 'makeChart'>Make My Charts</button>
+
+                <input type = 'number' onChange = {scaleChange} id = 'scaleMax' placeholder = 'Max Scale Value (Number)'/>
+              </div>
+                
+                <button name = {'submitCountry'} onClick = {handleClick} className = 'makeChart'>Create</button>
             </div>
 
             <div className = 'chartsContainer'>
@@ -183,6 +158,7 @@ defaults.global.defaultFontFamily = "'Lato',sans-serif";
                         height={300}
                         options={{
                             maintainAspectRatio: false,
+                            responsive:true,
                             ...options
                         }}
                 />
@@ -201,8 +177,8 @@ defaults.global.defaultFontFamily = "'Lato',sans-serif";
                 </div>
             </div>
             <div style = {{display:'flex',flexDirection:'row',fontFamily:"'Lato',sans-serif",position:'absolute',left:'50%',top:'2%',transform:'Translate(-50%)',color:'#db6400'}}>
-              <p>Max Scale Value:{'  '}</p>
-              <input type = 'number' onChange = {scaleChange} id = 'scaleMax' />
+              {/* <p>Max Scale Value:{'  '}</p> */}
+              
 
             </div>
           
