@@ -1,7 +1,7 @@
 import React,{useState,useEffect} from 'react';
 import axios from 'axios';
 
-const Prompt = (props) =>{
+const Selector = (props) =>{
 
     let [options,updateOptions] = useState([]);
 
@@ -30,12 +30,11 @@ const Prompt = (props) =>{
         });
 
         updateOptions(sorted);
-
     }
 
     return(
-        <select onChange = {props.change} name = {props.name} className="country" placeholder = 'country'>
-            <option value = "" disabled selected>Select Country</option>
+        <select defaultValue = '' onChange = {props.change} name = {props.name} className="country" placeholder = 'country'>
+            <option value = "" disabled>Select Country</option>
             {
                 options.map((eachOption,index) =>{
                 return <option key = {index} value = {eachOption.slug}>{eachOption.Country}</option>
@@ -45,4 +44,4 @@ const Prompt = (props) =>{
     );
 }
 
-export default Prompt;
+export default Selector;

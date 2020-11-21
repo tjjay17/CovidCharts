@@ -13,6 +13,8 @@ html{
     overflow-x: hidden;
 }
 
+/*Scrollbar Code*/
+
 body::-webkit-scrollbar{
     width:10px;
 }
@@ -22,9 +24,10 @@ body::-webkit-scrollbar-track{
 }
 
 body::-webkit-scrollbar-thumb{
-    background-color:pink;
+    background-color:#ccc;
 }
 
+/*Animations: initial opacity blink load and arrow bounce respectively */
 @keyframes initialLoad{
     0%{
         opacity:0;
@@ -35,6 +38,21 @@ body::-webkit-scrollbar-thumb{
     }
 }
 
+
+@keyframes bounce{
+    0%{
+        transform:translateY(0)
+    }
+
+   40%{
+       transform:translateY(-8px)
+   }
+   
+   100%{
+       transform: translateY(0);
+   }
+}
+/* ***************** Here is the landing page ************ */
 .landingContainer{
     background-color:orange;
     color:white;
@@ -47,21 +65,17 @@ body::-webkit-scrollbar-thumb{
 .arrow{
     position:absolute;
     top:45%;
-    left:48%;
+    left:46%;
     transform: translate(-50%, -50%);
     animation: bounce 3s infinite;
     cursor:pointer;
     color:white;
 }
 
-i{
-    color:black;
-}
-
+/* both the title and description on landing page */
 .Prompts{
     position: relative;
     top:10%;
-    white-space: nowrap;
 }
 
 .info, .title{
@@ -77,34 +91,22 @@ i{
     font-size: 5rem;
 }
 
-@keyframes bounce{
-    0%{
-        transform:translateY(0)
-    }
+/* ************** The Charts page **********/
 
-   40%{
-       transform:translateY(-8px)
-   }
-
-   80%{
-       transform: translateY(8px);
-   }
-
-   100%{
-       transform: translateY(0);
-   }
-}
-
+/*The full charts container*/
 .selectorContainer{
     width:100vw;
     height:100vh;
     position: relative;
 }
 
+/* This is both selects and the scale input*/
 #countrySelectors{
     display:flex;
     flex-direction:column;
 }
+
+/* button to make charts*/
 
 .makeChart{
     height:5%;
@@ -174,8 +176,19 @@ i{
 ::placeholder{
     color:#db6400;
     font-family: 'Lato',sans-serif;
-
 }
+
+#hoverDirective{
+    position: absolute;
+    bottom:2vh;
+    left:50%;
+    transform: translateX(-50%);
+    font-family: 'Lato',sans-serif;
+    font-size: 1rem;
+}
+
+/*responsive: media queries*/
+
 
 @media only screen and (max-width:806px){
     .title{
@@ -202,6 +215,36 @@ i{
 @media only screen and (max-width:660px){
     .title{
         font-size:4rem;
+    }
+
+    .chartsContainer{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .chart2Container{
+        top:60vh;
+        width: 80%;
+        left:-10vw;
+    }
+
+    .chart1Container{
+        width: 80%;
+        right:30vw;
+    }
+
+    .selectorContainer{
+        height:200vh;
+    }
+
+    .chartForm{
+        position: absolute;
+        top:10vh;
+    }
+
+    #hoverDirective{
+        position:absolute;
+        bottom:50vh;
     }
 }
 
@@ -267,12 +310,25 @@ i{
         right:2vw;
     }
 
+    .chart2Container{
+        top:50vh;
+    }
+
     .makeChart{
         width:50vw;
         position:absolute;
-        left:0;
+        left:5vw;
         top:20vh;
         height:8vh;
+    }
+
+    #hoverDirective{
+        position: absolute;
+        top:0;
+        left:60vw;
+        width:100%;
+        height:30px;
+        font-size: 1rem;
     }
 }
 
@@ -284,6 +340,11 @@ i{
     #countrySelectors{
         position: relative;
         left:10vw;
+    }
+
+    #hoverDirective{
+        left:50vw;
+        word-break: normal;
     }
 }
 
