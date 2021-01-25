@@ -1,3 +1,10 @@
+#Overview
+This project uses the covid19 api and uses chart.js to map that data onto bar graphs. The error handling still needs lots of improvement but the application is fully functional.
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
