@@ -53,7 +53,7 @@ body::-webkit-scrollbar-thumb{
    }
 }
 /* ***************** Here is the landing page ************ */
-.landingContainer{
+/* .landingContainer{
     background-color:orange;
     color:white;
     font-family: 'Lato', sans-serif;
@@ -70,10 +70,10 @@ body::-webkit-scrollbar-thumb{
     animation: bounce 3s infinite;
     cursor:pointer;
     color:white;
-}
+} */
 
 /* both the title and description on landing page */
-.Prompts{
+/* .Prompts{
     position: relative;
     top:10%;
 }
@@ -89,10 +89,13 @@ body::-webkit-scrollbar-thumb{
 .title{
     letter-spacing: 15px;
     font-size: 5rem;
-}
+} */
 
 /* ************** The Charts page **********/
-
+input{
+    border-radius:25px;
+    padding:1%;
+}
 /*The full charts container*/
 .selectorContainer{
     width:100vw;
@@ -122,11 +125,11 @@ body::-webkit-scrollbar-thumb{
     width:20vw;
 }
 
-.makeChart:hover{
+/* .makeChart:hover{
     color:white;
     background: #db6400;
     box-shadow:2px 7px 7px 1px #000000;
-}
+} */
 
 .chartForm{
     position:absolute;
@@ -138,7 +141,7 @@ body::-webkit-scrollbar-thumb{
 }
 
 .country,#scaleMax{
-    border:1px solid black;
+    border:1px solid orange;
     font-family:'Lato',sans-serif;
     color:#db6400;
     font-size:1rem;
